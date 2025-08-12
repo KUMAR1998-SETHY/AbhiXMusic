@@ -13,7 +13,7 @@ BOT_TOKEN = getenv("BOT_TOKEN", "7686533950:AAHYhD_IeQyX5dvTy6F65tgpamxL8sXgajw"
 
 OWNER_ID = int(getenv("OWNER_ID", "7796771435"))
 OWNER_USERNAME = getenv("OWNER_USERNAME", "DoUhKnow_Me")
-BOT_USERNAME = getenv("BOT_USERNAME", "AnnieXRobot")
+BOT_USERNAME = getenv("BOT_USERNAME", "abhixmusicbot")
 BOT_NAME = getenv("BOT_NAME", "𝘼𝙗𝙝𝙞 ✖ 𝙈𝙪𝙨𝙞𝙘")
 ASSUSERNAME = getenv("ASSUSERNAME", "musicxannie")
 EVALOP = list(map(int, getenv("EVALOP", "850255908").split()))
@@ -61,7 +61,7 @@ SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", "017f7d26ffd943de8c72bcb669af3a5
 SPOTIFY_CLIENT_SECRET = getenv("SPOTIFY_CLIENT_SECRET", "3cf21c32d02d4b0f98ee0bbdc2701e1c")
 
 # ───── Session Strings ───── #
-STRING1 = getenv("STRING_SESSION", "BQFBCOwAKJJiazHqBq9fRp84HCRKm5CUuHnLCqb4yJay6ZaEuTh2U-FiOK8wiMMlygiyO-MWT8cT2MHTSZp8vXpRUbVKT5rqsrTC8iioWU7I8l9ZMRwtO872wCvjfkZPTobHbA-0Ya8A_pijeZPeDYM5Ook3kVje4TtJgSraXYuzbYmRfV_Rc-E1eOCOBn_Qauuuqk8tOR-nBsGjCt-5vys3QBryGKkkknjetEeLnsIDJl5xw60YcbTa7Qf9CvcB84lEf9UCGpC7Kpao5Az6N-_gctFS3eXQEDJt1PoruT4vsTFtKEjnp-fTDk-8R39qBpcn2DQuuTHIjhnuNzBrooaApZphOQAAAAG3_c4lAQ")
+STRING1 = getenv("STRING_SESSION", "BQGNyuQARfVw8n5ZsZI5q9NqXftlHyueNiz4UtjTj1ixI4mbovcR6ceGO6aNAhfvgE1elAjquLESQDDm47mHwoEqP5cy9zL5Q5PUQxq_Pqulrf2MpM3MwVSgN6aOC6XgTSGRAK_u7NdJtnEobomyO3cj-fmPxIZTGbAUCyKszWB-jcSX3b2hvTJerYakqkxEe3yOWr8QfLFr7_U2auqE9YSYx9bmyTi8SWFNoY_R5ThmpkchWjAMSKoVggsW_DkWmQxIECvLW0atkOhxyArvMXOpZoLmFjaz94JlKWJQlupNqR_xwstUjDlCZt__IELzP8Oj6MAG2BM9xSYwxCl8sFs2ei45dAAAAAGpUdE7AA")
 STRING2 = getenv("STRING_SESSION2", "")
 STRING3 = getenv("STRING_SESSION3", "")
 STRING4 = getenv("STRING_SESSION4", "")
