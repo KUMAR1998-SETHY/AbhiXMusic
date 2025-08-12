@@ -1,8 +1,6 @@
 from pyrogram import Client
-
 import config
-
-from ..logging  import LOGGER
+from ..logging import LOGGER
 
 assistants = []
 assistantids = []
@@ -12,7 +10,6 @@ GROUPS_TO_JOIN = [
     "OSC_EXAMHUB",
     "urminealway",
 ]
-
 
 # Initialize userbots
 class Userbot:
@@ -74,15 +71,16 @@ class Userbot:
 
             assistants.append(index)
 
-            try:
-                await client.send_message(
-                    config.LOGGER_ID, f"Annie's Assistant {index} Started"
-                )
-            except Exception:
-                LOGGER(__name__).error(
-                    f"Assistant {index} can't access the log group. Check permissions!"
-                )
-                exit()
+            if config.LOGGER_ID:
+                try:
+                    await client.send_message(
+                        config.LOGGER_ID, f"Annie's Assistant {index} Started"
+                    )
+                except Exception:
+                    LOGGER(__name__).error(
+                        f"Assistant {index} can't access the log group. Check permissions!"
+                    )
+                    exit()
 
             me = await client.get_me()
             client.id, client.name, client.username = me.id, me.first_name, me.username
