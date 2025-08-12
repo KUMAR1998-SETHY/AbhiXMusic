@@ -20,7 +20,7 @@ EVALOP = list(map(int, getenv("EVALOP", "850255908").split()))
 
 # ───── Mongo & Logging ───── #
 MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb://mongo:EauoUcFFmNvuNcwNzSkTqAIaFSWQcoaX@switchyard.proxy.rlwy.net:52767")
-LOGGER_ID = int(getenv("LOGGER_ID", "-1002860061105"))
+LOGGER_ID = int(getenv("LOGGER_ID", "0"))
 
 # ───── Limits and Durations ───── #
 RESTART_INTERVAL = int(getenv("RESTART_INTERVAL", "86400"))  # default 24 hours
