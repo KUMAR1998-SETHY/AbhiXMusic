@@ -3,15 +3,15 @@ from os import getenv
 from dotenv import load_dotenv
 from pyrogram import filters
 
-# Load environment variables from .env file
+# Load environment variables from .env file if present
 load_dotenv()
 
 # ───── Basic Bot Configuration ───── #
-API_ID = int(getenv("26069732"))
-API_HASH = getenv("db3cce8178926582d878f291a19dba79")
-BOT_TOKEN = getenv("7686533950:AAHYhD_IeQyX5dvTy6F65tgpamxL8sXgajw")
+API_ID = int(getenv("API_ID", "26069732"))
+API_HASH = getenv("API_HASH", "db3cce8178926582d878f291a19dba79")
+BOT_TOKEN = getenv("BOT_TOKEN", "7686533950:AAHYhD_IeQyX5dvTy6F65tgpamxL8sXgajw")
 
-OWNER_ID = int(getenv("OWNER_ID", 7796771435))
+OWNER_ID = int(getenv("OWNER_ID", "7796771435"))
 OWNER_USERNAME = getenv("OWNER_USERNAME", "DoUhKnow_Me")
 BOT_USERNAME = getenv("BOT_USERNAME", "AnnieXRobot")
 BOT_NAME = getenv("BOT_NAME", "𝘼𝙗𝙝𝙞 ✖ 𝙈𝙪𝙨𝙞𝙘")
@@ -19,22 +19,22 @@ ASSUSERNAME = getenv("ASSUSERNAME", "musicxannie")
 EVALOP = list(map(int, getenv("EVALOP", "850255908").split()))
 
 # ───── Mongo & Logging ───── #
-MONGO_DB_URI = getenv("mongodb://mongo:EauoUcFFmNvuNcwNzSkTqAIaFSWQcoaX@switchyard.proxy.rlwy.net:52767")
-LOGGER_ID = int(getenv("LOGGER_ID", -1002860061105))
+MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb://mongo:EauoUcFFmNvuNcwNzSkTqAIaFSWQcoaX@switchyard.proxy.rlwy.net:52767")
+LOGGER_ID = int(getenv("LOGGER_ID", "-1002860061105"))
 
 # ───── Limits and Durations ───── #
-RESTART_INTERVAL = int(getenv("RESTART_INTERVAL", 86400))  # default 24 hours
-DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
+RESTART_INTERVAL = int(getenv("RESTART_INTERVAL", "86400"))  # default 24 hours
+DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", "17000"))
 SONG_DOWNLOAD_DURATION = int(getenv("SONG_DOWNLOAD_DURATION", "9999999"))
 SONG_DOWNLOAD_DURATION_LIMIT = int(getenv("SONG_DOWNLOAD_DURATION_LIMIT", "9999999"))
 TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", "5242880000"))
 TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", "5242880000"))
 
 # ───── Custom API Configs ───── #
-API_URL = getenv("API_URL") #optional
-API_KEY = getenv("API_KEY") #optional
-COOKIE_URL = getenv("https://pastebin.com/raw/m69ErvF6") #necessary
-DEEP_API = getenv("DEEP_API") #optional
+API_URL = getenv("API_URL")  # optional
+API_KEY = getenv("API_KEY")  # optional
+COOKIE_URL = getenv("COOKIE_URL", "https://pastebin.com/raw/m69ErvF6")  # necessary
+DEEP_API = getenv("DEEP_API")  # optional
 
 # ───── Heroku Configuration ───── #
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
@@ -54,25 +54,24 @@ AUTO_LEAVING_ASSISTANT = False
 AUTO_LEAVE_ASSISTANT_TIME = int(getenv("ASSISTANT_LEAVE_TIME", "11500"))
 
 # ───── Error Handling ───── #
-DEBUG_IGNORE_LOG =True
+DEBUG_IGNORE_LOG = True
 
 # ───── Spotify Credentials ───── #
 SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", "017f7d26ffd943de8c72bcb669af3a58")
 SPOTIFY_CLIENT_SECRET = getenv("SPOTIFY_CLIENT_SECRET", "3cf21c32d02d4b0f98ee0bbdc2701e1c")
 
 # ───── Session Strings ───── #
-STRING1 = getenv("STRING_SESSION1")
-STRING2 = getenv("STRING_SESSION2")
-STRING3 = getenv("STRING_SESSION3")
-STRING4 = getenv("STRING_SESSION4")
-STRING5 = getenv("STRING_SESSION5")
+STRING1 = getenv("STRING_SESSION", "BQFBCOwAKJJiazHqBq9fRp84HCRKm5CUuHnLCqb4yJay6ZaEuTh2U-FiOK8wiMMlygiyO-MWT8cT2MHTSZp8vXpRUbVKT5rqsrTC8iioWU7I8l9ZMRwtO872wCvjfkZPTobHbA-0Ya8A_pijeZPeDYM5Ook3kVje4TtJgSraXYuzbYmRfV_Rc-E1eOCOBn_Qauuuqk8tOR-nBsGjCt-5vys3QBryGKkkknjetEeLnsIDJl5xw60YcbTa7Qf9CvcB84lEf9UCGpC7Kpao5Az6N-_gctFS3eXQEDJt1PoruT4vsTFtKEjnp-fTDk-8R39qBpcn2DQuuTHIjhnuNzBrooaApZphOQAAAAG3_c4lAQ")
+STRING2 = getenv("STRING_SESSION2", "")
+STRING3 = getenv("STRING_SESSION3", "")
+STRING4 = getenv("STRING_SESSION4", "")
+STRING5 = getenv("STRING_SESSION5", "")
 
 # ───── Server Settings ───── #
 SERVER_PLAYLIST_LIMIT = int(getenv("SERVER_PLAYLIST_LIMIT", "3000"))
 PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "2500"))
 
 # ───── Bot Media Assets ───── #
-
 START_VIDS = [
     "https://telegra.ph/file/9b7e1b820c72a14d90be7.mp4",
     "https://telegra.ph/file/72f349b1386d6d9374a38.mp4",
@@ -83,6 +82,7 @@ STICKERS = [
     "CAACAgUAAx0Cd6nKUAACASBl_rnalOle6g7qS-ry-aZ1ZpVEnwACgg8AAizLEFfI5wfykoCR4h4E",
     "CAACAgUAAx0Cd6nKUAACATJl_rsEJOsaaPSYGhU7bo7iEwL8AAPMDgACu2PYV8Vb8aT4_HUPHgQ"
 ]
+
 HELP_IMG_URL = "https://files.catbox.moe/yg2vky.jpg"
 PING_VID_URL = "https://files.catbox.moe/3ivvgo.mp4"
 PLAYLIST_IMG_URL = "https://telegra.ph/file/94e9eca3b0ec6e2dc6cd5.png"
@@ -104,7 +104,7 @@ DURATION_LIMIT = time_to_seconds(f"{DURATION_LIMIT_MIN}:00")
 AYU = ["💞", "🦋", "🔍", "🧪", "⚡️", "🔥", "🎩", "🌈", "🍷", "🥂", "🥃", "🕊️", "🪄", "💌", "🧨"]
 AYUV = [
     "ʜᴇʟʟᴏ {0}, 🥀\n\n ɪᴛ'ꜱ ᴍᴇ {1} !\n\n┏━━━━━━━━━━━━━━━━━⧫\n┠ ◆ ꜱᴜᴘᴘᴏʀᴛɪɴɢ ᴘʟᴀᴛꜰᴏʀᴍꜱ : ʏᴏᴜᴛᴜʙᴇ, ꜱᴘᴏᴛɪꜰʏ,\n┠ ◆ ʀᴇꜱꜱᴏ, ᴀᴘᴘʟᴇᴍᴜꜱɪᴄ , ꜱᴏᴜɴᴅᴄʟᴏᴜᴅ ᴇᴛᴄ.\n┗━━━━━━━━━━━━━━━━━⧫\n┏━━━━━━━━━━━━━━━━━⧫\n┠ ➥ Uᴘᴛɪᴍᴇ : {2}\n┠ ➥ SᴇʀᴠᴇʀSᴛᴏʀᴀɢᴇ : {3}\n┠ ➥ CPU Lᴏᴀᴅ : {4}\n┠ ➥ RAM Cᴏɴsᴜᴘᴛɪᴏɴ : {5}\n┠ ➥ ᴜꜱᴇʀꜱ : {6}\n┠ ➥ ᴄʜᴀᴛꜱ : {7}\n┗━━━━━━━━━━━━━━━━━⧫\n\n🫧 ᴅᴇᴠᴇʟᴏᴩᴇʀ 🪽 ➪ [ᴄᴇʀᴛɪғɪᴇᴅ ᴄᴏᴅᴇʀ ✔︎](https://t.me/CertifiedCoder)",
-    "ʜɪɪ, {0} ~\n\n◆ ɪ'ᴍ ᴀ {1} ᴛᴇʟᴇɢʀᴀᴍ ꜱᴛʀᴇᴀᴍɪɴɢ ʙᴏᴛ ᴡɪᴛʜ ꜱᴏᴍᴇ ᴜꜱᴇꜰᴜʟ\n◆ ᴜʟᴛʀᴀ ғᴀsᴛ ᴠᴄ ᴘʟᴀʏᴇʀ ꜰᴇᴀᴛᴜʀᴇꜱ.\n\n✨ ꜰᴇᴀᴛᴜʀᴇꜱ ⚡️\n◆ ʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs.\n◆ Sᴜᴘᴇʀғᴀsᴛ ʟᴀɢ Fʀᴇᴇ ᴘʟᴀʏᴇʀ.\n◆ ʏᴏᴜ ᴄᴀɴ ᴘʟᴀʏ ᴍᴜꜱɪᴄ + ᴠɪᴅᴇᴏ.\n◆ ʟɪᴠᴇ ꜱᴛʀᴇᴀᴍɪɴɢ.\n◆ ɴᴏ ᴘʀᴏᴍᴏ.\n◆ ʙᴇꜱᴛ ꜱᴏᴜɴᴅ Qᴜᴀʟɪᴛʏ.\n◆ 24×7 ʏᴏᴜ ᴄᴀɴ ᴘʟᴀʏ ᴍᴜꜱɪᴄ.\n◆ ᴀᴅᴅ ᴛʜɪꜱ ʙᴏᴛ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴍᴀᴋᴇ ɪᴛ ᴀᴅᴍɪɴ ᴀɴᴅ ᴇɴᴊᴏʏ ᴍᴜꜱɪᴄ 🎵.\n\n┏━━━━━━━━━━━━━━━━━⧫\n┠ ◆ ꜱᴜᴘᴘᴏʀᴛɪɴɢ ᴘʟᴀᴛꜰᴏʀᴍꜱ : ʏᴏᴜᴛᴜʙᴇ, ꜱᴘᴏᴛɪꜰʏ,\n┠ ◆ ʀᴇꜱꜱᴏ, ᴀᴘᴘʟᴇᴍᴜꜱɪᴄ , ꜱᴏᴜɴᴅᴄʟᴏᴜᴅ ᴇᴛᴄ.\n┗━━━━━━━━━━━━━━━━━⧫\n┏━━━━━━━━━━━━━━━━━⧫\n┠ ➥ Uᴘᴛɪᴍᴇ : {2}\n┠ ➥ SᴇʀᴠᴇʀSᴛᴏʀᴀɢᴇ : {3}\n┠ ➥ CPU Lᴏᴀᴅ : {4}\n┠ ➥ RAM Cᴏɴsᴜᴘᴛɪᴏɴ : {5}\n┠ ➥ ᴜꜱᴇʀꜱ : {6}\n┠ ➥ ᴄʜᴀᴛꜱ : {7}\n┗━━━━━━━━━━━━━━━━━⧫\n\n🫧 ᴅᴇᴠᴇʟᴏᴩᴇʀ 🪽 ➪ [ᴄᴇʀᴛɪғɪᴇᴅ ᴄᴏᴅᴇʀ ✔︎](https://t.me/CertifiedCoder)",
+    "ʜɪɪ, {0} ~\n\n◆ ɪ'ᴍ ᴀ {1} ᴛᴇʟᴇɢʀᴀᴍ ꜱᴛʀᴇᴀᴍɪɴɢ ʙᴏᴛ ᴡɪᴛʜ ꜱᴏᴍᴇ ᴜꜱᴇꜰᴜʟ\n◆ ᴜʟᴛʀᴀ ғᴀsᴛ ᴠᴄ ᴘʟᴀʏᴇʀ ꜰᴇᴀᴛᴜʀᴇꜱ.\n\n✨ ꜰᴇᴀᴛᴜʀᴇꜱ ⚡️\n◆ ʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs.\n◆ Sᴜᴘᴇʀғᴀsᴛ ʟᴀɢ Fʀᴇᴇ ᴘʟᴀʏᴇʀ.\n◆ ʏᴏᴜ ᴄᴀɴ ᴘʟᴀʏ ᴍᴜꜱɪᴄ + ᴠɪᴅᴇᴏ.\n◆ ʟɪᴠᴇ ꜱᴛʀᴇᴀᴍɪɴɢ.\n◆ ɴᴏ ᴘʀᴏᴍᴏ.\n◆ ʙᴇꜱᴛ ꜱᴏᴜɴᴅ Qᴜᴀʟɪᴛʏ.\n◆ 24×7 ʏᴏᴜ ᴄᴀɴ ᴘʟᴀʏ ᴍᴜꜱɪᴄ.\n◆ ᴀᴅᴅ ᴛʜɪꜱ ʙᴏᴛ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴍᴀᴋᴇ ɪᴛ ᴀᴅᴍɪɴ ᴀɴᴅ ᴇɴᴊᴏʏ ᴍᴜꜱɪᴄ 🎵.\n\n┏━━━━━━━━━━━━━━━━━⧫\n┠ ◆ ꜱᴜᴘᴘᴏʀᴛɪɴɢ ᴘʟᴀᴛꜰᴏʀᴍꜱ : ʏᴏᴜᴛᴜʙᴇ, ꜱᴘᴏᴛɪꜰʏ,\n┠ ◆ ʀᴇꜱꜱᴏ, ᴀᴘᴘʟᴇᴍᴜꜱɪᴄ , ꜱᴏᴜɴᴅᴄʟᴏᴜᴅ ᴇᴛᴄ.\n┗━━━━━━━━━━━━━━━━━⧫\n┏━━━━━━━━━━━━━━━━━⧫\n┠ ➥ Uᴘᴛɪᴍᴇ : {2}\n┠ ➥ SᴇʀᴠᴇʀSᴛᴏʀᴀɢᴇ : {3}\n┠ ➥ CPU Lᴏᴀᴅ : {4}\n┠ ➥ RAM Cᴏɴsᴜᴘᴛɪᴏɴ : {5}\n┠ ➥ ᴜꜱᴇʀꜱ : {6}\n┠ ➥ ᴄʜᴀᴛꜱ : {7}\n┗━━━━━━━━━━━━━━━━━⧫\n\n🫧 ᴅᴇᴠᴇʟᴏ"
 ]
 
 # ───── Runtime Structures ───── #
