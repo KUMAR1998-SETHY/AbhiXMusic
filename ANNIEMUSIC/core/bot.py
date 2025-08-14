@@ -1,5 +1,7 @@
-import asyncio
+import threading
+from http.server import HTTPServer, BaseHTTPRequestHandler
 import os
+import asyncio
 import sys
 from pyrogram import Client, errors
 from pyrogram.enums import ChatMemberStatus
@@ -7,6 +9,22 @@ from pyrogram.enums import ChatMemberStatus
 import config
 from ..logging import LOGGER
 
+# ------------------- DUMMY HTTP SERVER FOR RENDER -------------------
+PORT = int(os.environ.get("PORT", 8080))  # Render sets PORT automatically
+
+class Handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"Bot is running")
+
+def run_server():
+    server = HTTPServer(("0.0.0.0", PORT), Handler)
+    server.serve_forever()
+
+# Run HTTP server in a separate thread
+threading.Thread(target=run_server, daemon=True).start()
+# ---------------------------------------------------------------------
 
 class JARVIS(Client):
     def __init__(self):
@@ -40,7 +58,5 @@ class JARVIS(Client):
         self.username, self.id = me.username, me.id
         self.name = f"{me.first_name} {me.last_name or ''}".strip()
         self.mention = me.mention
-
-        # Removed Telegram logging to LOGGER_ID
 
         LOGGER(__name__).info(f"✅ Music Bot started as {self.name} (@{self.username})")
